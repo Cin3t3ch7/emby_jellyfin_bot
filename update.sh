@@ -7,6 +7,9 @@ echo "🔄 Iniciando actualización del bot..."
 # Ir al directorio del script
 cd "$(dirname "$0")" || exit
 
+# Solucionar error "dubious ownership" (cuando se ejecuta como root pero el repo es de otro usuario)
+git config --global --add safe.directory "$(pwd)"
+
 # Asegurar que estamos en la rama main
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 if [ "$CURRENT_BRANCH" != "main" ]; then
