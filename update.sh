@@ -41,7 +41,7 @@ fi
 chmod +x update.sh
 
 # Reiniciar el servicio si existe
-SERVICE_NAME="emby_bot"
+SERVICE_NAME="emby-jellyfin-bot"
 if systemctl list-units --full -all | grep -Fq "$SERVICE_NAME.service"; then
     echo "🔄 Reiniciando servicio $SERVICE_NAME..."
     sudo systemctl restart "$SERVICE_NAME"
